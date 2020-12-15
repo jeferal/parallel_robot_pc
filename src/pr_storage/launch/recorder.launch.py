@@ -77,6 +77,30 @@ def generate_launch_description():
                         {"data_dir_path": data_folder},
                     ]
                 ),
+                ComposableNode(
+                    package='pr_storage',
+                    node_plugin='pr_storage::SingleRecorder',
+                    node_name='x_coord_recorder',
+                    remappings=[
+                        ("sub", "x_coord"),
+                    ],
+                    parameters=[
+                        {"data_name": "x_coord"},
+                        {"data_dir_path": data_folder},
+                    ]
+                ),
+                ComposableNode(
+                    package='pr_storage',
+                    node_plugin='pr_storage::SingleRecorder',
+                    node_name='q_grav_recorder',
+                    remappings=[
+                        ("sub", "q_grav"),
+                    ],
+                    parameters=[
+                        {"data_name": "q_grav"},
+                        {"data_dir_path": data_folder},
+                    ]
+                ),
             ],
             output='screen',
     )
