@@ -52,7 +52,7 @@ namespace pr_storage
 
     void SingleRecorder::topic_callback(const pr_msgs::msg::PRArrayH::SharedPtr data_msg)
     {
-        file << data_msg->header.stamp.sec << '\t' << data_msg->header.stamp.nanosec;
+        file << data_msg->current_time.sec << '\t' << data_msg->current_time.nanosec;
            
             for(int i=0; i<(long)data_msg->data.size(); i++){
                 file << '\t' << data_msg->data[i];
