@@ -1,0 +1,1 @@
+time_sec	time_nanosec	joint_velocity_0	joint_velocity_1	joint_velocity_2	joint_velocity_3
