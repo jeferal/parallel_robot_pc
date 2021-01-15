@@ -23,6 +23,7 @@ find_package(ament_cmake REQUIRED)
 
 find_package(rosidl_default_generators REQUIRED)
 find_package(std_msgs REQUIRED)
+find_package(builtin_interfaces REQUIRED)
 
 if(BUILD_TESTING)
   find_package(ament_lint_auto REQUIRED)
@@ -40,6 +41,7 @@ rosidl_generate_interfaces(${PROJECT_NAME}
   "msg/PRArrayH.msg"
   "msg/PRForceState.msg"
   "msg/PRMatH.msg"
+  "srv/Trajectory.srv"
   DEPENDENCIES builtin_interfaces std_msgs
  )
 
