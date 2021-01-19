@@ -14,7 +14,7 @@ def generate_launch_description():
     now = datetime.now()
 
     now_str = now.strftime("%d_%m_%Y-%H_%M_%S")
-    data_folder = home + "/pr_pc_ws/exp_data/exp_" + now_str
+    data_folder = home + "/ros2_eloquent_ws/parallel_robot_pc/exp_data/exp_" + now_str
 
     try:
         mkdir(data_folder)
