@@ -56,10 +56,28 @@ rclcpp_components_register_nodes(single_recorder "pr_storage::SingleRecorder")
 set(node_plugins "${node_plugins}pr_storage::SingleRecorder;$<TARGET_FILE:single_recorder>\n")
 
 
+### Mocap Recorder node ###
+
+add_library(mocap_recorder SHARED
+  src/mocap_recorder.cpp)
+
+target_compile_definitions(mocap_recorder
+  PRIVATE "COMPOSITION_BUILDING_DLL")
+
+ament_target_dependencies(mocap_recorder
+  "rclcpp"
+  "rclcpp_components"
+  "pr_msgs")
+
+rclcpp_components_register_nodes(mocap_recorder "pr_storage::MocapRecorder")
+set(node_plugins "${node_plugins}pr_storage::MocapRecorder;$<TARGET_FILE:mocap_recorder>\n")
+
+
 ### Installation ###
 
 install(TARGETS
   single_recorder
+  mocap_recorder
   ARCHIVE DESTINATION lib
   LIBRARY DESTINATION lib
   RUNTIME DESTINATION bin)

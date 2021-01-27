@@ -101,6 +101,18 @@ def generate_launch_description():
                         {"data_dir_path": data_folder},
                     ]
                 ),
+                ComposableNode(
+                    package='pr_storage',
+                    node_plugin='pr_storage::MocapRecorder',
+                    node_name='mocap_recorder',
+                    remappings=[
+                        ("sub", "x_coord_mocap"),
+                    ],
+                    parameters=[
+                        {"data_name": "x_mocap"},
+                        {"data_dir_path": data_folder},
+                    ]
+                ),
             ],
             output='screen',
     )

@@ -1,9 +1,9 @@
-refeprism_pata1
-refeprism_pata2
-refeprism_pata3
-refeprism_pata4
-refeprism_pata1234
-ref_cart_TRR0_CF1_IdV1
-ref_qinde_TRR0_CF1_IdV1
-refecart_TRR8_identificar
-refeprism_indep_TRR8
+refeprism_pata1, 0
+refeprism_pata2, 0
+refeprism_pata3, 0
+refeprism_pata4, 0
+refeprism_pata1234, 0
+ref_cart_TRR0_CF1_IdV1, 1
+ref_qinde_TRR0_CF1_IdV1, 0
+refecart_TRR8_identificar, 1
+refeprism_indep_TRR8, 0
