@@ -106,7 +106,7 @@ def generate_launch_description():
                     node_plugin='pr_storage::MocapRecorder',
                     node_name='mocap_recorder',
                     remappings=[
-                        ("sub", "x_coord_mocap_error"),
+                        ("sub", "x__mocap_error"),
                     ],
                     parameters=[
                         {"data_name": "x_mocap"},
