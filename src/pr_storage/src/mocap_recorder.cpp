@@ -17,11 +17,11 @@ namespace pr_storage
 {
     /**** SINGLE RECORDER COMPONENT ****/
     MocapRecorder::MocapRecorder(const rclcpp::NodeOptions & options)
-    : Node("single_recorder", options)
+    : Node("mocap_recorder", options)
     {
         //Parameter declaration
-        this->declare_parameter<std::string>("data_name", "joint_position");
-        this->declare_parameter<std::string>("data_dir_path", "/home/avalera/pr_pc_ws/exp_data/exp_05_11_2020-16_33_14");
+        this->declare_parameter<std::string>("data_name", "x_mocap");
+        this->declare_parameter<std::string>("data_dir_path", "/home/avalera/pr_pc_ws/exp_data/exp_28_01_2021-13_07_54");
 
         this->get_parameter("data_name", data_name);
         this->get_parameter("data_dir_path", data_dir_path);
