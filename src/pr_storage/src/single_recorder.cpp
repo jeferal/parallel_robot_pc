@@ -46,7 +46,7 @@ namespace pr_storage
     }
 
     SingleRecorder::~SingleRecorder(){
-	        RCLCPP_INFO(this->get_logger(), "Closing file: " + file_path);
+	        RCLCPP_INFO(this->get_logger(), "Closing the file: " + file_path);
 	        file.close();
     }
 
