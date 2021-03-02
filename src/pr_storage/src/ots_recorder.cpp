@@ -24,11 +24,10 @@ namespace pr_storage
         this->declare_parameter<std::string>("data_name_2", "sol_ots");
         this->declare_parameter<std::string>("data_dir_path", "/home/avalera/pr_pc_ws/exp_data/exp_28_01_2021-13_07_54");
 
-        this->get_parameter("data_name_1", data_name_1);
-        this->get_parameter("data_name_2", data_name_2);
+        this->get_parameter("data_name_1", data_name);
         this->get_parameter("data_dir_path", data_dir_path);
 
-        file_path = data_dir_path + "/" + data_name_1 + ".txt";
+        file_path = data_dir_path + "/" + data_name + ".txt";
 
         subscription_ = this->create_subscription<pr_msgs::msg::PROTS>(
             "/sub",
@@ -59,10 +58,6 @@ namespace pr_storage
                 file << '\t' << ots_msg->ots_ang[i];
             }
 
-            for(int i=0; i<(long)ots_msg->ots.data.size(); i++){
-                file << '\t' << ots_msg->ots.data[i];
-            }
-
         file << std::endl;
 
         /*RCLCPP_INFO(this->get_logger(), 
@@ -78,12 +73,7 @@ namespace pr_storage
         file << "time_sec\t" << "time_nanosec"; 
 
         for(int i=0; i<4; i++)
-            file << '\t' << data_name_1 << "_" << i;
-
-        for(int i=0; i<24; i++)
-            file << '\t' << data_name_2 << "_" << i;
-
-        file << "\terror\tlatency"; 
+            file << '\t' << data_name << "_" << i;
 
         file << std::endl;
     }

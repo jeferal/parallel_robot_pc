@@ -1,1 +1,0 @@
-time_sec	time_nanosec	x_coord_0	x_coord_1	x_coord_2	x_coord_3

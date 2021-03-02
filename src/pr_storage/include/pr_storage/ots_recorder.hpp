@@ -21,7 +21,7 @@ namespace pr_storage
             void file_header();
         private:
             rclcpp::Subscription<pr_msgs::msg::PROTS>::SharedPtr subscription_;
-            std::string data_name_1, data_name_2;
+            std::string data_name;
             std::string data_dir_path, file_path;
             std::ofstream file;
     };

@@ -104,14 +104,26 @@ def generate_launch_description():
 
                 ComposableNode(
                     package='pr_storage',
+                    node_plugin='pr_storage::SingleRecorder',
+                    node_name='vc_des_recorder',
+                    remappings=[
+                        ("sub", "vc_des"),
+                    ],
+                    parameters=[
+                        {"data_name": "vc_des"},
+                        {"data_dir_path": data_folder},
+                    ]
+                ),
+
+                ComposableNode(
+                    package='pr_storage',
                     node_plugin='pr_storage::OTSRecorder',
                     node_name='ots_recorder',
                     remappings=[
                         ("sub", "ang_ots"),
                     ],
                     parameters=[
-                        {"data_name_1": "ang_ots"},
-                        {"data_name_2": "sol_ots"},
+                        {"data_name": "ang_ots"},
                         {"data_dir_path": data_folder},
                     ]
                 ),

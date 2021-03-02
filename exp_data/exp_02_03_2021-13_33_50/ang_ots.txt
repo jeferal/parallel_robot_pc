@@ -1,1 +1,0 @@
-time_sec	time_nanosec	ang_ots_0	ang_ots_1	ang_ots_2	ang_ots_3	sol_ots_0	sol_ots_1	sol_ots_2	sol_ots_3	sol_ots_4	sol_ots_5	sol_ots_6	sol_ots_7	sol_ots_8	sol_ots_9	sol_ots_10	sol_ots_11	sol_ots_12	sol_ots_13	sol_ots_14	sol_ots_15	sol_ots_16	sol_ots_17	sol_ots_18	sol_ots_19	sol_ots_20	sol_ots_21	sol_ots_22	sol_ots_23	error	latency
