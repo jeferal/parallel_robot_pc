@@ -15,7 +15,7 @@ using std::placeholders::_1;
 
 namespace pr_storage
 {
-    /**** SINGLE RECORDER COMPONENT ****/
+    /**** MOCAP RECORDER COMPONENT ****/
     MocapRecorder::MocapRecorder(const rclcpp::NodeOptions & options)
     : Node("mocap_recorder", options)
     {

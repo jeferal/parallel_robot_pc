@@ -59,13 +59,7 @@ namespace pr_storage
             }
 
             file << std::endl;
-
-        /*RCLCPP_INFO(this->get_logger(), 
-            "Received from " + data_name + " '%f %f %f %f'", 
-                                             data_msg->data[0], 
-                                             data_msg->data[1], 
-                                             data_msg->data[2], 
-                                             data_msg->data[3]);*/
+            
     }
 
     void SingleRecorder::file_header()
