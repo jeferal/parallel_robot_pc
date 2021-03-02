@@ -60,19 +60,13 @@ namespace pr_storage
 
         file << std::endl;
 
-        /*RCLCPP_INFO(this->get_logger(), 
-            "Received from " + data_name + " '%f %f %f %f'", 
-                                             data_msg->data[0], 
-                                             data_msg->data[1], 
-                                             data_msg->data[2], 
-                                             data_msg->data[3]);*/
     }
 
     void OTSRecorder::file_header()
     {
         file << "time_sec\t" << "time_nanosec"; 
 
-        for(int i=0; i<4; i++)
+        for(int i=0; i<6; i++)
             file << '\t' << data_name << "_" << i;
 
         file << std::endl;
