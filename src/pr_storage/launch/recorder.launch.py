@@ -117,6 +117,32 @@ def generate_launch_description():
 
                 ComposableNode(
                     package='pr_storage',
+                    node_plugin='pr_storage::SingleRecorder',
+                    node_name='x_mocap_recorder',
+                    remappings=[
+                        ("sub", "x_mocap_sync"),
+                    ],
+                    parameters=[
+                        {"data_name": "x_mocap"},
+                        {"data_dir_path": data_folder},
+                    ]
+                ),
+
+                ComposableNode(
+                    package='pr_storage',
+                    node_plugin='pr_storage::SingleRecorder',
+                    node_name='ref_pose_mod_recorder',
+                    remappings=[
+                        ("sub", "ref_pose_mod"),
+                    ],
+                    parameters=[
+                        {"data_name": "ref_pose_mod"},
+                        {"data_dir_path": data_folder},
+                    ]
+                ),
+
+                ComposableNode(
+                    package='pr_storage',
                     node_plugin='pr_storage::OTSRecorder',
                     node_name='ots_recorder',
                     remappings=[
