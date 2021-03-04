@@ -17,9 +17,15 @@ endif()
 
 # find dependencies
 find_package(ament_cmake REQUIRED)
-# uncomment the following section in order to fill in
-# further dependencies manually.
-# find_package(<dependency> REQUIRED)
+find_package(rclcpp REQUIRED)
+find_package(rclcpp_components REQUIRED)
+find_package(rcutils REQUIRED)
+
+find_package(pr_3dof_msgs REQUIRED)
+
+include_directories(include)
+
+set(node_plugins "")
 
 if(BUILD_TESTING)
   find_package(ament_lint_auto REQUIRED)
@@ -31,5 +37,37 @@ if(BUILD_TESTING)
   #set(ament_cmake_cpplint_FOUND TRUE)
   ament_lint_auto_find_test_dependencies()
 endif()
+
+### 3DOF Recorder node ###
+
+add_library(single_recorder SHARED
+  src/single_recorder.cpp)
+
+target_compile_definitions(single_recorder
+  PRIVATE "COMPOSITION_BUILDING_DLL")
+
+ament_target_dependencies(single_recorder
+  "rclcpp"
+  "rclcpp_components"
+  "pr_3dof_msgs")
+
+rclcpp_components_register_nodes(single_recorder "pr_3dof_storage::SingleRecorder")
+set(node_plugins "${node_plugins}pr_3dof_storage::SingleRecorder;$<TARGET_FILE:single_recorder>\n")
+
+### Installation ###
+
+install(TARGETS
+  single_recorder
+  ARCHIVE DESTINATION lib
+  LIBRARY DESTINATION lib
+  RUNTIME DESTINATION bin)
+
+
+### Install launch files ###
+install(DIRECTORY
+  launch
+  DESTINATION share/${PROJECT_NAME}
+)
+
 
 ament_package()
