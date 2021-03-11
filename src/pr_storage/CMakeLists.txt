@@ -90,12 +90,30 @@ rclcpp_components_register_nodes(ots_recorder "pr_storage::OTSRecorder")
 set(node_plugins "${node_plugins}pr_storage::OTSRecorder;$<TARGET_FILE:ots_recorder>\n")
 
 
+### Number Recorder node ###
+
+add_library(num_recorder SHARED
+  src/number_recorder.cpp)
+
+target_compile_definitions(num_recorder
+  PRIVATE "COMPOSITION_BUILDING_DLL")
+
+ament_target_dependencies(num_recorder
+  "rclcpp"
+  "rclcpp_components"
+  "pr_msgs")
+
+rclcpp_components_register_nodes(num_recorder "pr_storage::NumberRecorder")
+set(node_plugins "${node_plugins}pr_storage::NumberRecorder;$<TARGET_FILE:num_recorder>\n")
+
+
 ### Installation ###
 
 install(TARGETS
   single_recorder
   mocap_recorder
   ots_recorder
+  num_recorder
   ARCHIVE DESTINATION lib
   LIBRARY DESTINATION lib
   RUNTIME DESTINATION bin)

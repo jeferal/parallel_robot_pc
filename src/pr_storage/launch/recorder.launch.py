@@ -153,6 +153,19 @@ def generate_launch_description():
                         {"data_dir_path": data_folder},
                     ]
                 ),
+
+                ComposableNode(
+                    package='pr_storage',
+                    node_plugin='pr_storage::NumberRecorder',
+                    node_name='jac_det_recorder',
+                    remappings=[
+                        ("sub", "for_jac_det"),
+                    ],
+                    parameters=[
+                        {"data_name": "jac_det"},
+                        {"data_dir_path": data_folder},
+                    ]
+                ),
                 
             ],
             output='screen',
