@@ -35,6 +35,7 @@ endif()
 
 rosidl_generate_interfaces(${PROJECT_NAME}
   "msg/PRArrayH.msg"
+  "msg/PRLongArrayH.msg"
   DEPENDENCIES builtin_interfaces std_msgs
  )
 

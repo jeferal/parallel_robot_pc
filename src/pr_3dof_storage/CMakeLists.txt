@@ -54,10 +54,28 @@ ament_target_dependencies(single_recorder
 rclcpp_components_register_nodes(single_recorder "pr_3dof_storage::SingleRecorder")
 set(node_plugins "${node_plugins}pr_3dof_storage::SingleRecorder;$<TARGET_FILE:single_recorder>\n")
 
+### 3DOF Long Array Recorder node ###
+
+add_library(long_array_recorder SHARED
+  src/long_array_recorder.cpp)
+
+target_compile_definitions(long_array_recorder
+  PRIVATE "COMPOSITION_BUILDING_DLL")
+
+ament_target_dependencies(long_array_recorder
+  "rclcpp"
+  "rclcpp_components"
+  "pr_3dof_msgs")
+
+rclcpp_components_register_nodes(long_array_recorder "pr_3dof_storage::LongArrayRecorder")
+set(node_plugins "${node_plugins}pr_3dof_storage::LongArrayRecorder;$<TARGET_FILE:long_array_recorder>\n")
+
+
 ### Installation ###
 
 install(TARGETS
   single_recorder
+  long_array_recorder
   ARCHIVE DESTINATION lib
   LIBRARY DESTINATION lib
   RUNTIME DESTINATION bin)
